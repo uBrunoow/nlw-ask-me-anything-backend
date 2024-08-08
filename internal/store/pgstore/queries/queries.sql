@@ -7,7 +7,8 @@ WHERE id = $1;
 -- name: GetRooms :many
 SELECT
     "id", "theme"
-FROM rooms;
+FROM rooms
+LIMIT $1 OFFSET $2;
 
 -- name: InsertRoom :one
 INSERT INTO rooms

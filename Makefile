@@ -3,3 +3,6 @@ rundb:
 
 stopdb:
 	sudo docker compose -f  docker-compose-dev.yml down
+
+runserver:
+	go run cmd/wsrs/main.go

@@ -5,13 +5,14 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"nlw-ask-me-anything-backend/internal/api"
 	"os"
 	"os/signal"
 
+	"github.com/uBrunoow/nlw-ask-me-anything-backend/internal/api"
+
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/joho/godotenv"
-	"github.com/rocketseat-education/semana-tech-go-react-server/internal/store/pgstore"
+	"github.com/uBrunoow/nlw-ask-me-anything-backend/internal/store/pgstore"
 )
 
 func main() {

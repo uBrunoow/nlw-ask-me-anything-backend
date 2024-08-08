@@ -84,10 +84,16 @@ const getRooms = `-- name: GetRooms :many
 SELECT
     "id", "theme"
 FROM rooms
+LIMIT $1 OFFSET $2
 `
 
-func (q *Queries) GetRooms(ctx context.Context) ([]Room, error) {
-	rows, err := q.db.Query(ctx, getRooms)
+type GetRoomsParams struct {
+	Limit  int32
+	Offset int32
+}
+
+func (q *Queries) GetRooms(ctx context.Context, arg GetRoomsParams) ([]Room, error) {
+	rows, err := q.db.Query(ctx, getRooms, arg.Limit, arg.Offset)
 	if err != nil {
 		return nil, err
 	}
